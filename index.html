@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/svg+xml" href="img/faviconh.svg">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>batidos</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    /* Barra fija */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background: #00431e; /* semitransparente */
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .navbar img {
+        height: 200px; /* Logo o imagen de la barra */
+    
+    display: block; /* evita espacios */
+    }
+
+    /* Contenido principal */
+    .section {
+        width: 100%;
+        margin-top: 100px; /* compensa la barra fija */
+    }
+
+    .section img {
+        width: 100%;
+        display: block;
+    }
+
+
+/* ✅ Solo afecta a la PRIMERA imagen de .section en desktop */
+@media (min-width: 900px) {
+    .section img:first-child {
+        width: 60%;      /* AJUSTA este tamaño como quieras */
+        margin: 0 auto;  /* la centra */
+        display: block;
+    }
+}
+
+@media (min-width: 900px) {
+    .section img:nth-child(2) {
+        width: 80%;      /* AJUSTA el tamaño que quieras */
+        margin: 40px auto 0;  /* opción: añade un margen superior */
+        display: block;
+    }
+}
+
+
+
+    /* Botón de WhatsApp */
+    .whatsapp-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25d366;
+        color: #fff;
+        padding: 16px 26px;
+        border-radius: 50px;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        gap:10px;
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        animation: pulse 1.4s infinite ease-in-out;
+        transition: transform 0.2s ease;
+    }
+    .whatsapp-btn:hover {
+    transform: scale(1.08);
+    }
+    .whatsapp-btn img {    
+    width: 34px;
+    height: 34px;
+    display: block; 
+    }
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* ✅ Fondo del preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999; /* siempre encima de todo */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* ✅ Loader centrado */
+.loader svg {
+    display: block;
+}
+
+/* ✅ Ocultar suavemente */
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Barra fija -->
+<div class="navbar">
+    <img src="img/NAV.png" alt="">
+</div>
+
+<!-- Secciones solo con imágenes -->
+<div class="section">
+    <img src="img/imgprin.jpg" alt="">
+    <img src="img/img1.jpg" alt="">
+    <img src="img/footer.jpg" alt="">
+    <img src="seccion4.png" alt="">
+    <!-- Agrega más si quieres -->
+</div>
+
+<!-- Botón flotante de WhatsApp -->
+<a class="whatsapp-btn" 
+   href="https://wa.me/+573108114923?text=¡Hola!%20Estoy%20interesado%20en%20un%20batido." 
+   target="_blank">
+   <img src="img/iconws.png" alt="">
+   ¡Lo quiero!
+</a>
+
+<script>
+    window.addEventListener("load", () => {
+        const loader = document.getElementById("preloader");
+        loader.classList.add("hidden");
+    });
+</script>
+
+</body>
+
+<!-- ✅ PRELOADER -->
+<div id="preloader">
+    <div class="loader">
+        <!-- ✅ SVG con animación -->
+        <svg width="80" height="80" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="#25d366" stroke-width="5" fill="none" stroke-linecap="round">
+                <animateTransform 
+                    attributeName="transform"
+                    type="rotate"
+                    repeatCount="indefinite"
+                    dur="1s"
+                    values="0 25 25;360 25 25">
+                </animateTransform>
+            </circle>
+        </svg>
+    </div>
+
+</html>
